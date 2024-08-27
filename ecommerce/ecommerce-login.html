@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        
+        @media (min-width: 800px) {
+            body {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Poppins", sans-serif;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            .navbar {
+                display: flex;
+                position: fixed;
+                top: 0px;
+                align-items: center;
+                width: 100%;
+                height: 85px;
+                background: linear-gradient(125deg, #1900ff, #90c3f1);
+                box-shadow: 0 0 200px #110d0d;
+                z-index: 100;
+            }
+
+            .navbar nav {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+            }
+
+            .navbar nav input {
+                max-height: 40px;
+                padding: 30px 30px;
+                display: flex;
+                border-radius: 30px;
+                justify-content: center;
+                align-items: center;
+                margin: 30px 20px 40px 50px;
+                padding: 10px;
+                outline: none;
+                border: none;
+                width: 40%;
+            }
+
+            .navbar nav ul {
+                list-style-type: none;
+                display: flex;
+                gap: 10px;
+            }
+
+            .navbar nav ul li {
+                font-size: 22px;
+                font-weight: 400;
+                transition: color 0.5s ease, 0.5s;
+                cursor: pointer;
+            }
+
+            .navbar nav ul li a {
+                font-size: 22px;
+                text-align: center;
+                text-decoration: none;
+                color: #110d0d;
+                padding: 10px;
+            }
+
+            .menu {
+                display: none;
+            }
+
+            .quernav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                align-items: flex-start;
+                height: 100vh;
+                width: 30%;
+                float: right;
+                display: none;
+                flex-direction: column;
+                gap: 30px;
+                background-color: gray;
+            }
+
+            .navbar nav ul li a i {
+                margin-top: 5px;
+            }
+
+            .navbar nav ul li:hover {
+                transform: translateY(-3px) scale(1.1);
+                color: rgb(239, 236, 236);
+            }
+
+            .container {
+                background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100vh;
+            }
+
+            .signup {
+                background: #fff;
+                border-radius: 3%;
+                width: 300px;
+                height: 350px;
+            }
+
+            .form {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            h2 {
+                color: black;
+                font-size: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            input {
+                border: none;
+                outline: none;
+                padding: 10px;
+                width: 75%;
+                margin: 13px;
+                border-radius: 10px;
+                font-size: 12px;
+                font-weight: 400;
+                border: 1px solid #ddd;
+            }
+
+            button {
+                padding: 10px;
+                width: 100px;
+                background-color: rgb(13, 13, 221);
+                border: none;
+                outline: none;
+                font-size: 16px;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            a {
+                color: rgb(65, 33, 207);
+                font-size: 16px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .message {
+                color: rgb(66, 30, 183);
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+
+        @media (max-width: 799px) {
+            * {
+                font-family: 'poppins', sans-serif;
+            }
+
+            .navbar {
+                display: flex;
+                position: fixed;
+                top: 0px;
+                left: 0;
+                align-items: center;
+                width: 100%;
+                height: 85px;
+                background: linear-gradient(125deg, #1900ff, #90c3f1);
+                box-shadow: 0 0 200px #110d0d;
+                z-index: 100;
+            }
+
+            .navbar nav {
+                width: 100%;
+                background: linear-gradient(125deg, #1900ff, #90c3f1);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .navbar nav ul {
+                list-style-type: none;
+                display: flex;
+                gap: 10px;
+            }
+
+            .navbar nav ul li {
+                font-size: 22px;
+                font-weight: 400;
+                transition: color 0.5s ease, 0.5s;
+                cursor: pointer;
+            }
+
+            .navbar nav input {
+                max-height: 30px;
+                margin-left: 30px;
+                padding: 5px 10px;
+                border-radius: 20px;
+            }
+
+            .navbar nav ul .menu {
+                background-color: black;
+                margin-right: 30px;
+                cursor: pointer;
+            }
+
+            .navbar nav ul .hideonmob {
+                display: none;
+            }
+
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                right: 0;
+                padding: 40px;
+                display: none;
+                backdrop-filter: blur(10px);
+                width: 250px;
+                height: 100vh;
+                background-color: rgba(128, 128, 128, 0.114);
+                z-index: 999;
+            }
+
+            .quernav {
+                padding-left: 30px;
+                float: right;
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 30px;
+
+            }
+
+            .sidebar .quernav li {
+                list-style: none;
+            }
+
+            .sidebar .quernav li a {
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+                font-size: 26px;
+                font-weight: 700;
+            }
+
+            .sidebar .quernav li a i {
+                margin-top: 6px;
+            }
+
+            .navbar nav ul .menu {
+                background-color: black;
+                margin-right: 30px;
+                cursor: pointer;
+            }
+
+            .navbar nav ul .hideonmob {
+                display: none;
+            }
+
+            .container {
+                background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100vh;
+            }
+
+            .signup {
+
+                background: #fff;
+                border-radius: 3%;
+                width: 300px;
+                height: 350px;
+            }
+
+            .form {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            h2 {
+                color: black;
+                font-size: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            input {
+                border: none;
+                outline: none;
+                padding: 10px;
+                width: 75%;
+                margin: 13px;
+                border-radius: 10px;
+                font-size: 12px;
+                font-weight: 400;
+                border: 1px solid #ddd;
+            }
+
+            button {
+                padding: 10px;
+                width: 100px;
+                background-color: rgb(13, 13, 221);
+                border: none;
+                outline: none;
+                font-size: 16px;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            a {
+                color: rgb(65, 33, 207);
+                font-size: 16px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .message {
+                color: rgb(66, 30, 183);
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <nav>
+                <input type="text" class="inp" placeholder="Search Items">
+                <ul>
+                    <li class="hideonmob"><a href="ecommerce.html">Home</a></li>
+                    <li class="hideonmob"><a href="ecommerce.html">About</a></li>
+                    <li class="hideonmob"><a href="ecommerce-products.html">Products</a></li>
+                    <li class="hideonmob"><a href="ecommerce-login.html" class="login" id="signed">Sign in</a></li>
+                    <li class="hideonmob"><a href="ecommerce-cart.html">Cart <i class="fa-solid fa-cart-shopping"
+                                id="cart"></i></a></li>
+                    <li onclick=side() id="bar"><a href="#"><svg class="menu" xmlns="http://www.w3.org/2000/svg"
+                                height="29px" viewBox="0 -960 960 960" width="29px" fill="#e8eaed">
+                                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                            </svg></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar">
+                <ul class="quernav">
+                    <li onclick=hide()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="29px"
+                                viewBox="0 -960 960 960" width="29px" fill="#e8eaed">
+                                <path
+                                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                            </svg></a></li>
+                    <li><a href="ecommerce.html">Home</a></li>
+                    <li><a href="#" id="logout">Log Out</a></li>
+                    <li><a href="ecommerce-products.html">Products</a></li>
+                    <li><a href="ecommerce-login.html" class="login" id="sign1">Sign In</a></li>
+                    <li><a href="ecommerce-cart.html">Cart <i class="fa-solid fa-cart-shopping" id="cart"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="signup">
+            <h2 class="h2">Sign In</h2>
+            <form class="form">
+                <div class="message"></div>
+                <input type="email" placeholder="Email" id="user" required>
+                <input type="password" placeholder="Password" id="pass" required>
+                <button type="button" class="btn" onclick="togglelogin()">Submit</button>
+            </form>
+            <p><a id="click" href="#" onclick="sign()">Already Have an Account? Log in</a></p>
+        </div>
+    </div>
+    <script>
+        function loadusers() {
+            return JSON.parse(localStorage.getItem("users")) || {};
+        }
+        function side() {
+            const side = document.querySelector('.sidebar');
+            side.style.display = 'flex';
+            side.style.flexdirection = 'column';
+        }
+        function hide() {
+            const side = document.querySelector('.sidebar');
+            side.style.display = 'none';
+        }
+        function save(username, password) {
+            const users = loadusers();
+            users[username] = password;
+            localStorage.setItem("users", JSON.stringify(users));
+        }
+        function togglelogin() {
+            const username = document.getElementById("user").value.trim();
+            const password = document.getElementById("pass").value.trim();
+            const users = loadusers();
+            if (!username || !password) {
+                alert("Please Enter Both Email And Password");
+                return;
+            }
+            if (document.querySelector(".h2").textContent == "Login") {
+                if (users[username] == password) {
+                    localStorage.setItem('islogged',true);
+                    updateSignInStatus();
+                    alert("Logged in Successfully");
+                    window.location.href = 'ecommerce.html';
+                }
+                else {
+                    document.querySelector(".message").textContent = "Invalid Username or Password";
+                }
+            }
+            else if (document.querySelector(".h2").textContent == "Sign In") {
+                if (users[username] == password) {
+                    document.querySelector('.message').textContent = "Email Already Exists";
+                }
+                else {
+                    save(username, password);
+                    sign();
+                    alert("Signed In Successfully");
+                    localStorage.setItem('islogged', 'true');
+                    updateSignInStatus();
+                    window.location.href = 'ecommerce.html';
+                }
+            }
+        }
+        function sign() {
+            if (document.querySelector(".h2").textContent == "Login") {
+                document.querySelector(".h2").textContent = "Sign In";
+                document.querySelector("#click").textContent = "Already Have an Account?Log In";
+                document.querySelector(".message").textContent = '';
+                document.getElementById("user").value = '';
+                document.getElementById("pass").value = '';
+            }
+            else if (document.querySelector(".h2").textContent == "Sign In") {
+                document.querySelector(".h2").textContent = "Login";
+                document.querySelector("#click").textContent = "Don't Have an account?Sign In";
+                document.querySelector(".message").textContent = '';
+                document.getElementById("user").value = '';
+                document.getElementById("pass").value = '';
+            }
+        }
+        function updateSignInStatus() {
+            const signin = document.getElementById('signed');
+            const sign1 = document.getElementById('sign1');
+            signin.textContent = 'LoggedIn';
+            sign1.textContent = 'LoggedIn';
+        }
+    </script>
+</body>
+
+</html>
